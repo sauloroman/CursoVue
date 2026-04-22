@@ -1,8 +1,7 @@
-<template>
-    <h1>ComponentsApp</h1>
-    <button-counter />
-</template>
-
 <script setup lang="ts">
-import ButtonCounter from './components/ButtonCounter.vue';
+import App5 from './components/App5.vue';
 </script>
+
+<template>
+    <App5 />
+</template>
