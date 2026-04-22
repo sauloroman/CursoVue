@@ -4,5 +4,5 @@
 </template>
 
 <script setup lang="ts">
-import ButtonCounter from './components/ButtonCounter.vue';
+import ButtonCounter from './ButtonCounter.vue';
 </script>
