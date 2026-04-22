@@ -1,22 +1,3 @@
-<template>
-    <div class="flex gap-3 items-center">
-        <button
-            :disabled="isPrevDisabled"
-            @click="$emit('prevPage')"
-            class="btn disabled:btn-disabled"
-        >
-            Anterior
-        </button>
-        <button
-            :disabled="isNextDisabled"
-            @click="$emit('nextPage')"
-            class="btn disabled:btn-disabled"
-        >
-            Siguiente
-        </button>
-    </div>
-</template>
-
 <script lang="ts" setup>
 import { computed } from 'vue';
 
@@ -34,6 +15,35 @@ const isPrevDisabled = computed(() => props.lowerBound === 0);
 const isNextDisabled = computed(() => props.upperBound === props.limit);
 </script>
 
+<template>
+    <div class="flex gap-3 items-center">
+        <button
+            :disabled="isPrevDisabled"
+            @click="$emit('prevPage')"
+            :class="[
+                'btn',
+                {
+                    'btn-disabled': isPrevDisabled,
+                },
+            ]"
+        >
+            Anterior
+        </button>
+        <button
+            :disabled="isNextDisabled"
+            @click="$emit('nextPage')"
+            :class="[
+                'btn',
+                {
+                    'btn-disabled': isNextDisabled,
+                },
+            ]"
+        >
+            Siguiente
+        </button>
+    </div>
+</template>
+
 <style scoped>
 @reference 'tailwindcss';
 
@@ -42,7 +52,6 @@ const isNextDisabled = computed(() => props.upperBound === props.limit);
 }
 
 .btn-disabled {
-    background-color: #f5f5f5;
-    opacity: 0.5;
+    @apply bg-gray-300 opacity-50 cursor-not-allowed;
 }
 </style>
