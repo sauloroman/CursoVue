@@ -3,6 +3,7 @@ import { type Pokemon } from '@/modules/common/interfaces/pokemon.interface';
 import { computed, onMounted, ref } from 'vue';
 import { GameStatus } from '../interfaces/game-status.enum';
 import { getRandomNumber } from '@/modules/common/helpers/get-random-number';
+import confetti from 'canvas-confetti';
 
 export const usePokemonGame = () => {
     const gameStatus = ref<GameStatus>(GameStatus.Playing);
@@ -20,6 +21,11 @@ export const usePokemonGame = () => {
 
         if (isCorrect) {
             gameStatus.value = GameStatus.Won;
+            confetti({
+                particleCount: 300,
+                spread: 150,
+                origin: { y: 0.6 },
+            });
             return;
         }
 
