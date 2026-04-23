@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+.btn {
+    @apply p-3 w-full text-center font-bold rounded-full shadow-lg cursor-pointer;
+}
+
+.btn-disabled {
+    @apply opacity-50 bg-gray-700 cursor-not-allowed;
+}
+
+.answer {
+    cursor: not-allowed;
+}
+
+.correct-answer {
+    @apply bg-green-500 text-gray-900;
+}
+
+.incorrect-answer {
+    @apply bg-gray-300 border border-gray-500 text-gray-900;
+}
