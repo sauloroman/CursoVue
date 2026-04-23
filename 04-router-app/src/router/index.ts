@@ -3,7 +3,7 @@ import NotFound404 from '@/modules/common/pages/NotFound404.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
-    // linkActiveClass: '',
+    linkActiveClass: 'active-link',
     routes: [
         {
             path: '/',
@@ -28,6 +28,11 @@ const router = createRouter({
                         return !name ? '' : name.toLowerCase();
                     },
                     component: () => import('@/modules/pokemons/pages/PokemonItemPage.vue'),
+                },
+                {
+                    path: 'favorites',
+                    name: 'pokemon-favorites',
+                    component: () => import('@/modules/pokemons/pages/FavoritePokemonsPage.vue'),
                 },
             ],
         },

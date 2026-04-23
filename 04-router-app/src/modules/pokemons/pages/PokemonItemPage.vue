@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 import { type PokemonItem } from '../../common/interfaces/pokemon-info.interface';
 import { getPokemon } from '../actions/get-pokemon.action';
 import PokemonNotFound from '../components/PokemonNotFound.vue';
+import PokemonAddFavoritesButton from '../components/PokemonAddFavoritesButton.vue';
 
 const pokemon = ref<PokemonItem | null>();
 const route = useRoute();
@@ -86,6 +87,8 @@ onMounted(async () => {
                 <p>Weight: {{ pokemon.weight }} kg</p>
                 <p>EXP: {{ pokemon.baseExperience }}</p>
             </div>
+
+            <pokemon-add-favorites-button :pokemon="pokemon" />
         </div>
     </section>
 
